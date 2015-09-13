@@ -1,7 +1,12 @@
 <?php
 session_start(); // inicia sesion
-if (! empty($_SESSION["usuario"])) //verifica si la variable de sesion no esta vacia
-{
+if(isset($_REQUEST["registrar"])){
+include '../../db/tramite/Tipo.php';
+    $usuario = new Tipo();
+   $data =  $usuario->add($_REQUEST['descripcion']);
+}
+/*if (! empty($_SESSION["usuario"])) //verifica si la variable de sesion no esta vacia
+{*/
 
 ?>
     <html>
@@ -13,13 +18,13 @@ if (! empty($_SESSION["usuario"])) //verifica si la variable de sesion no esta v
     <body>
     * Campos con asterisco son obligatorios
     <h2 align="center">TIPO</h2>
-    <form action="agtramite1.php" method="post">
+    <form action="" method="post">
         <h3>Descripcion:
-            <input type="text" name="nombre" pattern="[A-Za-z\s]{3,50}" maxlength="50" required size="50">*</h3>
+            <input type="text" name="descripcion" pattern="[A-Za-z\s]{3,50}" maxlength="50" required size="50">*</h3>
 
         </section>
         <section class="botones">
-            <input  class="pri" type="submit" value="Registrar">
+            <input  class="pri" type="submit" value="Registrar" name="registrar">
             <a href="../clear.html" style="text-decoration:none; background-color: lightgray; color:black; margin-left:20px;margin-right:20px;border: 2px solid white; ">Salir</a>
             <input type="reset" value="Limpiar Datos">
         </section>
@@ -27,8 +32,8 @@ if (! empty($_SESSION["usuario"])) //verifica si la variable de sesion no esta v
     </body>
     </html>
 <?php
-  }
+  /*}
   else
   {echo "<script language='JavaScript'>alert('Debe iniciar sesion');
-  location.href='../index.html';</script>";}
+  location.href='../index.html';</script>";}*/
 ?>
