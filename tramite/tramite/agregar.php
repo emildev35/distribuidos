@@ -2,9 +2,9 @@
 session_start(); // inicia sesion
   if (! empty($_SESSION["usuario"])) //verifica si la variable de sesion no esta vacia
   {
-      include '../class_conexion.php';
-      $query= mysql_query("select descripcion from tipo order by descripcion ASC") or
-      die("Error SQL");
+      include '../../db/tramite/Tramite.php';
+     $query =  Tramite::all();
+      //$query= mysql_query("select descripcion from tipo order by descripcion ASC") or die("Error SQL");
       $combobit="";
       while ($row2 = mysql_fetch_array($query, MYSQL_NUM))
       {
