@@ -1,17 +1,19 @@
 <?php
 
-include "../Conexion.php";
+include_once __DIR__.'/../Conexion.php';
 
-class Usuario extends Conexion{
+class Usuario extends Conexion
+{
 
-
-    public static function all(){
-
-        $data = pg_query("Select * from tramite", Usuario::getConnection_pgsql());
-        return $data;
+    function __construct()
+    {
+        $this->selectdb("mssql");
     }
-
-    public function save(){
-
+    
+    public function verificar_password($nick,$password)
+    {
+    	$datosCorrectos = mssql_init('cargo_A', getConnection_mssql());
+        $datosCargos = $this->execute("cargo_A $nick, $password");
+    	return $datosCargos;
     }
 }
