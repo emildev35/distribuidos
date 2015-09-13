@@ -21,7 +21,7 @@ class Conexion {
         $dbname = "t";
         $user = "postgres";
         $password = "sistemas";
-        $conn = pg_connect("host=$host port=5432 dbname=$dbname user=$user password=$password");
+        $conn = odbc_connect("Driver={SQL Server Native Client 10.0};Server=$host;Database=$dbname;", $user, $password);
         return $conn;
     }
 
@@ -51,7 +51,7 @@ class Conexion {
         }
 
         if ($db == "mssql") {
-            $this->conn = $this->getConnection_mssql();
+            $conn = $this->getConnection_mssql();
             $this->db_engine = "mssql";
         }
 
@@ -70,8 +70,10 @@ class Conexion {
                 $result = pg_fetch_all($data);
                 break;
             case "mssql":
-                $data = pg_execute($query, $this->conn);
-                $result = pg_fetch_all($data);
+                $result = odbc_exec($this->conn, $query);
+                while ($data[] = odbc_fetch_array($result))
+                odbc_free_result($result);
+                $result = $data;
                 break;
             case "mysql":
                 $result = array();
