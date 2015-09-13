@@ -71,7 +71,7 @@ class Conexion {
                 break;
             case "mssql":
                 $result = odbc_exec($this->conn, $query);
-                while ($data[] = odbc_fetch_array($result));
+                while ($data[] = odbc_fetch_array($result))
                 odbc_free_result($result);
                 $result = $data;
                 break;
