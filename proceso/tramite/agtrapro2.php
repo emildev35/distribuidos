@@ -158,8 +158,8 @@ if (!empty($_SESSION["usuario"])) { //verifica si la variable de sesion no esta 
             $proceso = $rown[0];
         }
         mysql_query("insert into paso_proceso (fecha_reg,id_proceso,id_paso,ini_paso,
-       inihora_paso,fin_paso,finhora_paso,estado,porcentaje,observaciones,ci_per) 
-      values ('$fecha', '$proceso','$paso','$fecha','$hora',
+        inihora_paso,fin_paso,finhora_paso,estado,porcentaje,observaciones,ci_per) 
+        values ('$fecha', '$proceso','$paso','$fecha','$hora',
         '$finpaprox','$horaact','En Proceso',
         '0','','$persona')") or
                 die("Error SQL");
