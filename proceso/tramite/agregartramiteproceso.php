@@ -26,6 +26,7 @@ if (!empty($_SESSION["usuario"])) { //verifica si la variable de sesion no esta 
         <section class="botones">
             <a href="../clear.html"  style="text-decoration:none; background-color: lightgray; color:black; margin-left:45%; border: 2px solid white; ">Salir</a>
         </section>
+        
     </body>
     </html>
     <?php
