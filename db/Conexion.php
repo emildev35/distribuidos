@@ -27,10 +27,11 @@ class Conexion {
 
     public function getConnection_mysql() {
         $host = "127.0.0.1";
-        $dbname = "distribudios";
-        $user = "postgres";
+        $dbname = "tramites";
+        $user = "root";
         $password = "sistemas";
-        $conn = pg_connect("host=$host port=5432 dbname=$dbname user=$user password=$password");
+        $conn = mysql_connect($host, $user, $password);
+        mysql_select_db($dbname, $conn);
         return $conn;
     }
 
@@ -73,8 +74,11 @@ class Conexion {
                 $result = pg_fetch_all($data);
                 break;
             case "mysql":
-                $data = mysql_query($query);
-                $result = mysql_fetch_array($data);
+                $result = array();
+                $resultado = mysql_query($query);
+                while ($row = mysql_fetch_row($resultado)) {
+                    $result[] = $row;
+                }
                 break;
         }
         return $result;
