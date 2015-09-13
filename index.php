@@ -3,13 +3,13 @@ include 'db/seguridad/Usuario.php';
 if(isset($_REQUEST['nick']))// verifica si esta vacio
     {
         $datosUsuario = new Usuario();
-        $datosUsuario->verificar_password($_REQUEST['nick'], $_REQUEST['pass']);
-        if(mssql_num_rows($datosUsuario)!=0)
+        $usuario = $datosUsuario->verificar_password($_REQUEST['nick'], $_REQUEST['pass']);
+        if(count($usuario)!=0)
         {
 
-            while ($row = mssql_fetch_array($datosUsuario, MSSQL_NUM)) 
+            foreach ($usuario as $data) 
             {
-            $_SESSION['nombre']=$row1[0]." ".$row1[1];
+            $_SESSION['nombre']=$data[0]." ".$data[1];
             header("location: principal.php");
             }
         }

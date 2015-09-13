@@ -74,7 +74,6 @@ class Conexion {
                 while ($row = odbc_fetch_row($resultado)){
                     $result[] = $row;
                 }
-                $result = $data;
                 break;
             case "mysql":
                 $result = array();
