@@ -17,9 +17,9 @@ class Conexion {
     }
 
     public function getConnection_mssql() {
-        $host = "127.0.0.1";
-        $dbname = "t";
-        $user = "postgres";
+        $host = "CINTIA-PC";
+        $dbname = "tramites";
+        $user = "sa";
         $password = "sistemas";
         $conn = odbc_connect("Driver={SQL Server Native Client 10.0};Server=$host;Database=$dbname;", $user, $password);
         return $conn;
@@ -51,7 +51,7 @@ class Conexion {
         }
 
         if ($db == "mssql") {
-            $conn = $this->getConnection_mssql();
+            $this->conn = $this->getConnection_mssql();
             $this->db_engine = "mssql";
         }
 

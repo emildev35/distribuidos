@@ -3,7 +3,7 @@ include 'db/seguridad/Usuario.php';
 if(isset($_REQUEST['nick']))// verifica si esta vacio
     {
         $datosUsuario = new Usuario();
-        $datosUsuario->verificar_password();
+        $datosUsuario->verificar_password($_REQUEST['nick'], $_REQUEST['pass']);
         if(mssql_num_rows($datosUsuario)!=0)
         {
 
