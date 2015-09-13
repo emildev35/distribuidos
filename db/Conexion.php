@@ -70,9 +70,10 @@ class Conexion {
                 $result = pg_fetch_all($data);
                 break;
             case "mssql":
-                $result = odbc_exec($this->conn, $query);
-                while ($data[] = odbc_fetch_array($result))
-                odbc_free_result($result);
+                $resultado = odbc_exec($this->conn, $query);
+                while ($row = odbc_fetch_row($resultado)){
+                    $result[] = $row;
+                }
                 $result = $data;
                 break;
             case "mysql":
