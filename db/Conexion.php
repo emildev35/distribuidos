@@ -17,11 +17,11 @@ class Conexion {
     }
 
     public function getConnection_mssql() {
-        $host = "127.0.0.1";
-        $dbname = "t";
-        $user = "postgres";
+        $host = "CINTIA-PC";
+        $dbname = "tramites";
+        $user = "sa";
         $password = "sistemas";
-        $conn = pg_connect("host=$host port=5432 dbname=$dbname user=$user password=$password");
+        $conn = odbc_connect("Driver={SQL Server Native Client 10.0};Server=$host;Database=$dbname;", $user, $password);
         return $conn;
     }
 
@@ -70,8 +70,10 @@ class Conexion {
                 $result = pg_fetch_all($data);
                 break;
             case "mssql":
-                $data = pg_execute($query, $this->conn);
-                $result = pg_fetch_all($data);
+                $resultado = odbc_exec($this->conn, $query);
+                while ($row = odbc_fetch_row($resultado)){
+                    $result[] = $row;
+                }
                 break;
             case "mysql":
                 $result = array();
