@@ -66,8 +66,8 @@ class Conexion {
         switch ($this->db_engine) {
             case "pgsql":
                 pg_prepare($this->conn, "pg_query", " $1 ");
-                $result = pg_execute($this->conn, "pg_query", array($query));
-                $result = pg_fetch_all($data);
+                $resultado = pg_execute($this->conn, "pg_query", array($query));
+                $result = pg_fetch_all($resultado);
                 break;
             case "mssql":
                 $resultado = odbc_exec($this->conn, $query);
@@ -76,8 +76,12 @@ class Conexion {
             case "mysql":
                 $result = array();
                 $resultado = mysql_query($query);
-                while ($row = mysql_fetch_row($resultado)) {
-                    $result[] = $row;
+                if(gettype($resultado)=="boolean"){
+                    $result = $resultado;
+                }else{
+                    while ($row = mysql_fetch_row($resultado)) {
+                        $result[] = $row;
+                    }
                 }
                 break;
         }
