@@ -10,10 +10,9 @@ class Usuario extends Conexion
         $this->selectdb("mssql");
     }
     
-    public function verificar_password($nick,$password)
+    public function ejecutar_query($procedimiento)
     {
-        $datosUsuario = $this->execute("execute usuario_S 'circ@ddrr.com.bo', '8320279'");
-        print_r($datosUsuario);
+        $datosUsuario = $this->execute($procedimiento);
     	return $datosUsuario;
     }
 }

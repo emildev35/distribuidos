@@ -1,3 +1,7 @@
+<?php
+session_start(); // inicia sesion
+  echo $_SESSION['nombre'];//verifica si la variable de sesion no esta vacia
+  ?>
 <!DOCTYPE html> 
 <head>
   <script type="text/javascript">
@@ -9,10 +13,10 @@
 <div >
                 <ul>
                 	<li><!--esta clase permitira que cuando el ouse este sobre esta lista cambie de color-->
-                    <a href="cargo/agregar.php" target="iframe">Agregar Cargo</a><!--cuando se coloca en href "#  direccionara a la misma pagina (recursivo)-->
+                    <a href="seguridad/cargo/agregar.php" target="iframe">Agregar Cargo</a><!--cuando se coloca en href "#  direccionara a la misma pagina (recursivo)-->
                 </li>
-                <li><a href="cargo/modificar.php" target="iframe">Modificar Cargo</a></li>
-                <li><a href="cargo/eliminar.php" target="iframe">Eliminar Cargo</a></li>
+                <li><a href="seguridad/cargo/modificar.php" target="iframe">Modificar Cargo</a></li>
+                <li><a href="seguridad/cargo/eliminar.php" target="iframe">Eliminar Cargo</a></li>
              
                     <li><!--esta clase permitira que cuando el ouse este sobre esta lista cambie de color-->
                     <a href="tipo/agregar.php" target="iframe">Agregar Tipo</a><!--cuando se coloca en href "#  direccionara a la misma pagina (recursivo)-->

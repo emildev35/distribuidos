@@ -2,21 +2,23 @@
 include 'db/seguridad/Usuario.php';
 if(isset($_REQUEST['nick']))// verifica si esta vacio
     {
-        $datosUsuario = new Usuario();
-        $usuario = $datosUsuario->verificar_password($_REQUEST['nick'], $_REQUEST['pass']);
-        if(count($usuario)!=0)
+        $instanciaUsuario = new Usuario();
+        $datosUsuario = $instanciaUsuario->verificar_password($_REQUEST['nick'], $_REQUEST['pass']);
+       print_r($datosUsuario);
+        if(count($datosUsuario)!=0)
         {
 
-            foreach ($usuario as $data) 
+            foreach ($datosUsuario as $data) 
             {
             $_SESSION['nombre']=$data[0]." ".$data[1];
-            header("location: principal.php");
+            echo $data[0];
+            //header("location: principal.php");
             }
         }
         else
         {
             echo "<script language='JavaScript'>alert('Datos Incorrectos');
-            location.href='../index.php';</script>";
+            location.href='index.php';</script>";
         }
     }
     else
