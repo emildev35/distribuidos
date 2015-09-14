@@ -71,9 +71,7 @@ class Conexion {
                 break;
             case "mssql":
                 $resultado = odbc_exec($this->conn, $query);
-                while ($row = odbc_fetch_row($resultado)){
-                    $result[] = $row;
-                }
+                $result = odbc_fetch_array($resultado);
                 break;
             case "mysql":
                 $result = array();
