@@ -14,6 +14,6 @@ class Tramite extends  Conexion{
     }
 
     public static function all(){
-return 10;
+
     }
 }

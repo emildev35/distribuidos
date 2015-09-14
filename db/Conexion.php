@@ -29,7 +29,7 @@ class Conexion {
         $host = "127.0.0.1";
         $dbname = "tramites";
         $user = "root";
-        $password = "sistemas";
+        $password = "taller";
         $conn = mysql_connect($host, $user, $password);
         mysql_select_db($dbname, $conn);
         return $conn;
