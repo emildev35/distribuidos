@@ -12,8 +12,7 @@ class Usuario extends Conexion
     
     public function verificar_password($nick,$password)
     {
-        $datosUsuario = $this->execute("execute usuario_S 'circ@ddrr.com.bo', '8320279'");
-        print_r($datosUsuario);
+        $datosUsuario = $this->execute("usuario_S '".$nick."', '".$password."'");
     	return $datosUsuario;
     }
 }

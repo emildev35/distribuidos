@@ -1,7 +1,6 @@
 <?php
 session_start(); // inicia sesion
-  echo $_SESSION['nombre'];//verifica si la variable de sesion no esta vacia
-  ?>
+?>
 <!DOCTYPE html> 
 <head>
   <script type="text/javascript">

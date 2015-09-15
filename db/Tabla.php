@@ -1,8 +1,8 @@
 <?php
 
-include_once __DIR__.'/../Conexion.php';
+include_once __DIR__.'../Conexion.php';
 
-class Usuario extends Conexion
+class Tabla extends Conexion
 {
 
     function __construct()
@@ -13,6 +13,7 @@ class Usuario extends Conexion
     public function ejecutar_query($procedimiento)
     {
         $datosUsuario = $this->execute($procedimiento);
+        print_r($datosUsuario);
     	return $datosUsuario;
     }
 }

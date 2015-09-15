@@ -4,16 +4,11 @@ if(isset($_REQUEST['nick']))// verifica si esta vacio
     {
         $instanciaUsuario = new Usuario();
         $datosUsuario = $instanciaUsuario->verificar_password($_REQUEST['nick'], $_REQUEST['pass']);
-       print_r($datosUsuario);
         if(count($datosUsuario)!=0)
         {
-
-            foreach ($datosUsuario as $data) 
-            {
-            $_SESSION['nombre']=$data[0]." ".$data[1];
-            echo $data[0];
-            //header("location: principal.php");
-            }
+            session_start();//crea una sesion
+            $_SESSION['nombre']=$datosUsuario['nombre']." ".$datosUsuario['apellido_paterno'];
+            header("location: principal.php");
         }
         else
         {

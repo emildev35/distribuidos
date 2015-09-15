@@ -1,6 +1,6 @@
 <?php
 session_start(); // inicia sesion
-  if (! empty($_SESSION['nombre'])) //verifica si la variable de sesion no esta vacia
+  if (!empty($_SESSION['nombre'])) //verifica si la variable de sesion no esta vacia
   {
     if(!isset($_REQUEST['valor']))// verifica si esta vacio
     {
