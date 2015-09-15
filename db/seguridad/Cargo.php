@@ -16,10 +16,16 @@ class Cargo extends Conexion
     	return $registroCorrecto;
     }
 
-    public function extraer_datos_cargo($descripcion)
+    public function extraer_datos_cargo($IdCargo)
     {
-        $datosCargo = $this->execute("cargo_S_ConDescripcion '".$descripcion."'");
+        $datosCargo = $this->execute("cargo_S_PorID '".$IdCargo."'");
     	return $datosCargo;
+    }
+
+    public function modificar($id,$descripcion)
+    {
+        $modificacionCorrecta = $this->execute("cargo_M '".$id."', '".$descripcion."'");
+    	return $modificacionCorrecta;
     }
 }
 ?>

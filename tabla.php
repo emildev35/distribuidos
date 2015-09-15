@@ -22,17 +22,15 @@ session_start(); // inicia sesion
         <td style="width:15%;"></td>
         </tr>
       <?php 
-      print_r($datosProcedimiento);
-      
-      $data=array_values($datosProcedimiento);
+      $datosProcedimiento=array_values($datosProcedimiento);
+   
          foreach ($datosProcedimiento as $data) 
           {
-            print_r($data);
-                        
+            $data=array_values($data);
               echo "<tr>";
-              echo "<td>".$data['id_cargo']."</td>";
-              echo "<td>".$data['descripcion']."</td>";
-              echo "<td>".$data['fecha_registro']."</td>";
+              echo "<td>".$data[0]."</td>";
+              echo "<td>".$data[1]."</td>";
+              echo "<td>".$data[2]."</td>";
               echo "<td><form action=".$_REQUEST['destino']."><input type=\"hidden\" name =\"valor\" value=".$data["0"]."><input type=\"submit\" value=\"Seleccionar\" style=\"background-color: #000000;width:100%;heigth:100%; border-color:white; color:white;\"></form></td></tr> \n"; 
               echo "</tr>";
          } 

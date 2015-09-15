@@ -13,7 +13,6 @@ class Tabla extends Conexion
     public function ejecutar_query($procedimiento)
     {
         $datosUsuario = $this->execute($procedimiento);
-        print_r($datosUsuario);
     	return $datosUsuario;
     }
 }
