@@ -61,7 +61,7 @@ class Conexion {
         }
     }
 
-    public function execute($query) {
+    public function execute($query, $type=null) {
         $result = array();
         switch ($this->db_engine) {
             case "pgsql":
@@ -71,7 +71,9 @@ class Conexion {
                 break;
             case "mssql":
                 $resultado = odbc_exec($this->conn, $query);
-                $result = odbc_fetch_array($resultado);
+                while($row = odbc_fetch_array($resultado)){
+                    $result[] = $row;
+                }
                 break;
             case "mysql":
                 $result = array();
@@ -87,5 +89,7 @@ class Conexion {
         }
         return $result;
     }
+    
+    
 
 }
