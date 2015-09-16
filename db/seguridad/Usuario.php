@@ -12,7 +12,8 @@ class Usuario extends Conexion
     
     public function verificar_password($nick,$password)
     {
-                $datosCargos = $this->execute("cargo_A '".$nick."', '".$password."'");
-    	return $datosCargos;
+        $datosUsuario = $this->execute("usuario_S '".$nick."', '".$password."'");
+    	return $datosUsuario;
     }
 }
+?>
