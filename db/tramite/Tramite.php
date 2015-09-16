@@ -15,7 +15,7 @@ class Tramite extends  Conexion{
         $this -> selectdb("mysql");
     }
     public function add($descripcion, $duracion, $tipo){
-        return $this -> execute("call tramite_A($descripcion, $duracion, $tipo)");
+        return $this -> execute("call tramite_A('$descripcion', $duracion, $tipo)");
     }
 
 
