@@ -7,10 +7,11 @@ $instanciaCargo = new Cargo();
     if(!isset($_REQUEST['valor']))// verifica si esta vacio
     {
       $procedimiento= "cargo_S";
+      $metodo=1;
       $titulos = "Codigo,Descripcion,Fecha";
       $campos=3;
       $destino="seguridad/cargo/modificar.php";
-      header("Location:../../tabla.php?procedimiento=".$procedimiento."& titulos=".$titulos."& campos=".$campos."& destino=".$destino);
+      header("Location:../../tabla.php?procedimiento=".$procedimiento."& metodo=".$metodo."& titulos=".$titulos."& campos=".$campos."& destino=".$destino);
     }
     else
       {
