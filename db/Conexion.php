@@ -85,6 +85,7 @@ class Conexion {
                         $result[] = $row;
                     }
                 }
+                mysql_close($this->conn);
                 break;
         }
         return $result;

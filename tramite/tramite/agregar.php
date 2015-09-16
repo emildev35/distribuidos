@@ -3,17 +3,21 @@ session_start(); // inicia sesion
 //if (!empty($_SESSION["usuario"])) { //verifica si la variable de sesion no esta vacia
 include '../../db/tramite/Tipo.php';
 include '../../db/tramite/Tramite.php';
-$select_tipo = new Tipo();
-if (isset ($_REQUEST["registrar"])){
-    $add = new Tramite();
-    $add ->add($_REQUEST["nombre"], $_REQUEST["duracion"], $_REQUEST["tipo"]);
-}
 
+$select_tipo = new Tipo();
 $lista_tipo = $select_tipo->getall();
+
+
+if (isset ($_POST["registrar"])){
+    $add = new Tramite();
+    $add->add($_POST["nombre"], $_POST["duracion"], $_POST["tipo"]);
+}
 $combobit="";
+print_r($lista_tipo);
 foreach ($lista_tipo as $row2) {
     $combobit .= "<option name='tipo' value ='" . $row2[0] . "'>" . $row2[2] . "</option>";
 }
+
 ?>
     <html>
     <head>
