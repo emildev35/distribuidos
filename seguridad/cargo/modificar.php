@@ -14,10 +14,10 @@ $instanciaCargo = new Cargo();
     }
     else
       {
-        if(isset($_POST['id']))
+        if(isset($_REQUEST['Guardar']))
         {
 $modificacionCorrecta = $instanciaCargo->modificar($_REQUEST['valor'],$_REQUEST['descripcion']);
-if($modificacionCorrecta[0]>0)
+if(count($modificacionCorrecta)>0)
         {
 echo "<script language='JavaScript'>alert('Modificacion Correcta');
             location.href='../../principal.php';</script>";
