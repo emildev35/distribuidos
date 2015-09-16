@@ -5,6 +5,4 @@ $databases = array(
     'user' => 'root',
     'password' => 'sistemas',
     'dbname' => 'distribuidos'
-)
-
-
+);

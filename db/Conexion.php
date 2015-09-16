@@ -60,7 +60,6 @@ class Conexion {
             $this->db_engine = "mysql";
         }
     }
-
     public function execute($query, $type=null) {
         $result = array();
         switch ($this->db_engine) {
