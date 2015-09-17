@@ -5,17 +5,17 @@
  * Date: 14/09/2015
  * Time: 08:41 PM
  */
-
+/*
 session_start(); // inicia sesion
-/*  if (! empty($_SESSION["usuario"])) //verifica si la variable de sesion no esta vacia
+  if (! empty($_SESSION["usuario"])) //verifica si la variable de sesion no esta vacia
   {*/
-if (!isset($_POST['valor']))// verifica si esta vacio
+if (isset($_POST['valor']))// verifica si esta vacio
 {
-    $query = "select t.id_tramite,t.nombre,t.fecha_reg,t.duracion,ti.descripcion from tramites as t, tipo as ti where t.id_tipo=ti.id_tipo order by t.nombre ASC";
+    $procedimiento = 'tramitebytipo_S';
     $titulos = "Codigo,Nombre,Fecha,Duracion,Tipo";
     $campos = 5;
     $destino = "tramite/paso/agregar.php";
-    header("Location:../tabla.php?query=" . $query . "& titulos=" . $titulos . "& campos=" . $campos . "& destino=" . $destino);
+    header("http:../../tabla.php?procedimiento=" . $procedimiento . "& titulos=" . $titulos . "& campos=" . $campos . "& destino=" . $destino);
 } else {
 
         $combobit = "";
@@ -28,7 +28,6 @@ if (!isset($_POST['valor']))// verifica si esta vacio
 
 
     // Liberar de memoria el resultado de la consulta
-    mysql_free_result($query);
     ?>
 <!DOCTYPE html>
 <head>
@@ -55,7 +54,7 @@ if (!isset($_POST['valor']))// verifica si esta vacio
    </select>*</h3>
       <section class="botones">
 <input  class="pri" type="submit" value="Registrar" name="registrar">
-<?php if ($_POST['registrar'] == "") {
+<?php if (isset ($_POST['registrar'])) {
 
         //registro del paso
     } ?>

@@ -10,7 +10,7 @@ $instanciaCargo = new Cargo();
       $titulos = "Codigo,Descripcion,Fecha";
       $campos=3;
       $destino="seguridad/cargo/modificar.php";
-      header("Location:../../tabla.php?procedimiento=".$procedimiento."& titulos=".$titulos."& campos=".$campos."& destino=".$destino);
+      header("http:../../tabla.php?procedimiento=".$procedimiento."& titulos=".$titulos."& campos=".$campos."& destino=".$destino);
     }
     else
       {

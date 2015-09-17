@@ -17,6 +17,11 @@ class Tramite extends  Conexion{
     public function add($descripcion, $duracion, $tipo){
         return $this -> execute("call tramite_A('$descripcion', $duracion, $tipo)");
     }
-
+    /**
+     * METODO PARA MOSTRAR LOS TRAMITES CON LA DESCRIPCION DEL PASO
+     */
+    public function getTramite(){
+        return $this -> execute("call tramitebytipo_S");
+    }
 
 }
