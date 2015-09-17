@@ -7,17 +7,19 @@ $instanciaCargo = new Cargo();
     if(!isset($_REQUEST['valor']))// verifica si esta vacio
     {
       $procedimiento= "cargo_S";
+      $metodo=1;
       $titulos = "Codigo,Descripcion,Fecha";
       $campos=3;
       $destino="seguridad/cargo/modificar.php";
-      header("Location:../../tabla.php?procedimiento=".$procedimiento."& titulos=".$titulos."& campos=".$campos."& destino=".$destino);
+
+      header("Location:../../tabla.php?procedimiento=".$procedimiento."& metodo=".$metodo."& titulos=".$titulos."& campos=".$campos."& destino=".$destino);
     }
     else
       {
-        if(isset($_POST['id']))
+        if(isset($_REQUEST['Guardar']))
         {
 $modificacionCorrecta = $instanciaCargo->modificar($_REQUEST['valor'],$_REQUEST['descripcion']);
-if($modificacionCorrecta[0]>0)
+if(count($modificacionCorrecta)>0)
         {
 echo "<script language='JavaScript'>alert('Modificacion Correcta');
             location.href='../../principal.php';</script>";

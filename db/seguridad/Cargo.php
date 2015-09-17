@@ -27,5 +27,17 @@ class Cargo extends Conexion
         $modificacionCorrecta = $this->execute("cargo_M '".$id."', '".$descripcion."'");
     	return $modificacionCorrecta;
     }
+
+    public function extraer_empleado_cargo($idCargo)
+    {
+        $cargoUsuario = $this->execute("cargo_S_CargoEmpleado '".$idCargo."'");
+        return $cargoUsuario; 
+    }
+
+    public function eliminar($idCargo)
+    {
+        $eliminacionCorrecta = $this->execute("cargo_E '".$idCargo."'");
+        return $eliminacionCorrecta;
+    }
 }
 ?>

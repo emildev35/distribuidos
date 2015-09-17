@@ -25,7 +25,7 @@ if(isset($_REQUEST['nick']))// verifica si esta vacio
 </head>
 <body >
     * Campos con asterisco son obligatorios
-  <h2 align="center">AGREGAR CARGO</h2>
+  <h2 align="center">LOG IN</h2>
   <form  action ="index.php" method="post">
                     <h4 > Correo de Usuario </h4>
                     <h1 > <input type="text" title="hola@ejemplo.gob.bo" value=""autofocus required name="nick" size="30" placeholder="hola@ejemplo.gob.bo" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"/> </h1>
