@@ -13,7 +13,6 @@ if (isset ($_POST["registrar"])){
     $add->add($_POST["nombre"], $_POST["duracion"], $_POST["tipo"]);
 }
 $combobit="";
-print_r($lista_tipo);
 foreach ($lista_tipo as $row2) {
     $combobit .= "<option name='tipo' value ='" . $row2[0] . "'>" . $row2[2] . "</option>";
 }

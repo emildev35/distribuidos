@@ -13,11 +13,11 @@ class Conexion {
      * Conexion constructor.
      */
     public function __construct() {
-        
+
     }
 
     public function getConnection_mssql() {
-        $host = "CINTIA-PC";
+        $host = "10.0.1.18";
         $dbname = "tramites";
         $user = "sa";
         $password = "sistemas";
@@ -60,14 +60,21 @@ class Conexion {
             $this->db_engine = "mysql";
         }
     }
-
+    /**
+     *
+     * @param type $query
+     * @param type $type
+     * @return type
+     */
     public function execute($query, $type=null) {
         $result = array();
         switch ($this->db_engine) {
             case "pgsql":
-                pg_prepare($this->conn, "pg_query", " $1 ");
-                $resultado = pg_execute($this->conn, "pg_query", array($query));
-                $result = pg_fetch_all($resultado);
+                $resultado = pg_query($this->conn, $query);
+                while($row = pg_fetch_row($resultado)){
+                  $result[] = $row;
+                }
+                pg_close($this->conn);
                 break;
             case "mssql":
                 $resultado = odbc_exec($this->conn, $query);
@@ -90,7 +97,7 @@ class Conexion {
         }
         return $result;
     }
-    
-    
+
+
 
 }

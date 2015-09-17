@@ -7,10 +7,8 @@ include_once  __DIR__.'/../Conexion.php';
  * @author franzemil
  */
 class PasoProceso extends Conexion{
-    
+
     public function __construct() {
         $this->selectdb("pgsql");
     }
-    
-    
 }
