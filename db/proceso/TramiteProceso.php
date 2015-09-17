@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include_once __DIR__.'/../Conexion.php';
 /**
@@ -10,11 +10,15 @@ class TramiteProceso extends Conexion
 
     function __construct()
     {
-        $this->selectdb("mysql");
+        $this->selectdb("pgsql");
     }
-    
+
     public function getall(){
-        return $this->execute("select * from paso");
+        return $this->execute("select * from tramite_proceso");
+    }
+    public function FunctionName($value='')
+    {
+      # code...
     }
 
 }
