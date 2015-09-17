@@ -16,6 +16,16 @@ session_start(); // inicia sesion
                 </li>
                 <li><a href="seguridad/cargo/modificar.php" target="iframe">Modificar Cargo</a></li>
                 <li><a href="seguridad/cargo/eliminar.php" target="iframe">Eliminar Cargo</a></li>
+             <li><!--esta clase permitira que cuando el ouse este sobre esta lista cambie de color-->
+                    <a href="seguridad/departamento/agregar.php" target="iframe">Agregar Departamento</a><!--cuando se coloca en href "#  direccionara a la misma pagina (recursivo)-->
+                </li>
+                <li><a href="seguridad/departamento/modificar.php" target="iframe">Modificar Departamento</a></li>
+                <li><a href="seguridad/departamento/eliminar.php" target="iframe">Eliminar Departamento</a></li>
+             <li><!--esta clase permitira que cuando el ouse este sobre esta lista cambie de color-->
+                    <a href="seguridad/cliente/agregar.php" target="iframe">Agregar Cliente</a><!--cuando se coloca en href "#  direccionara a la misma pagina (recursivo)-->
+                </li>
+                <li><a href="seguridad/cliente/modificar.php" target="iframe">Modificar Cliente</a></li>
+                <li><a href="seguridad/cliente/eliminar.php" target="iframe">Eliminar Cliente</a></li>
              
                     <li><!--esta clase permitira que cuando el ouse este sobre esta lista cambie de color-->
                     <a href="tipo/agregar.php" target="iframe">Agregar Tipo</a><!--cuando se coloca en href "#  direccionara a la misma pagina (recursivo)-->
