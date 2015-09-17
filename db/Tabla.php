@@ -10,8 +10,22 @@ class Tabla extends Conexion
         $this->selectdb("mssql");
     }
     
-    public function ejecutar_query($procedimiento)
+    public function ejecutar_query_mssql($procedimiento)
     {
+        $datosUsuario = $this->execute($procedimiento);
+    	return $datosUsuario;
+    }
+
+     public function ejecutar_query_mysql($procedimiento)
+    {
+    	$this->selectdb("mysql");
+        $datosUsuario = $this->execute($procedimiento);
+    	return $datosUsuario;
+    }
+
+    public function ejecutar_query_postgress($procedimiento)
+    {
+    	$this->selectdb("pgsql");
         $datosUsuario = $this->execute($procedimiento);
     	return $datosUsuario;
     }

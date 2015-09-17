@@ -4,8 +4,19 @@ session_start(); // inicia sesion
   {
       include 'db/Tabla.php';
       $instanciaTabla = new Tabla();
-     $datosProcedimiento = $instanciaTabla->ejecutar_query($_REQUEST['procedimiento']);    
-      ?>
+      if($_REQUEST['metodo']==1)
+      {
+        $datosProcedimiento = $instanciaTabla->ejecutar_query_mssql($_REQUEST['procedimiento']);    
+      }
+      if($_REQUEST['metodo']==2)
+      {
+        $datosProcedimiento = $instanciaTabla->ejecutar_query_mysql($_REQUEST['procedimiento']);    
+      }
+      if($_REQUEST['metodo']==3)
+      {
+        $datosProcedimiento = $instanciaTabla->ejecutar_query_pgsql($_REQUEST['procedimiento']);    
+      }
+     ?>
       <!DOCTYPE html>
       <html>
       <head><link rel ="stylesheet" href = "botones.css" type = "text/css"></head>

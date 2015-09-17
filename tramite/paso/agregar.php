@@ -9,13 +9,14 @@
 session_start(); // inicia sesion
   if (! empty($_SESSION["usuario"])) //verifica si la variable de sesion no esta vacia
   {*/
-if (isset($_POST['valor']))// verifica si esta vacio
+if (!isset($_POST['valor']))// verifica si esta vacio
 {
     $procedimiento = 'tramitebytipo_S';
+    $metodo=2;
     $titulos = "Codigo,Nombre,Fecha,Duracion,Tipo";
     $campos = 5;
     $destino = "tramite/paso/agregar.php";
-    header("http:../../tabla.php?procedimiento=" . $procedimiento . "& titulos=" . $titulos . "& campos=" . $campos . "& destino=" . $destino);
+    header("http:../../tabla.php?procedimiento=" . $procedimiento ."& metodo=".$metodo. "& titulos=" . $titulos . "& campos=" . $campos . "& destino=" . $destino);
 } else {
 
         $combobit = "";
