@@ -17,7 +17,7 @@ class Conexion {
     }
 
     public function getConnection_mssql() {
-        $host = "CINTIA-PC";
+        $host = "vasquez-pc";
         $dbname = "tramites";
         $user = "sa";
         $password = "sistemas";

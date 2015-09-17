@@ -1,7 +1,7 @@
 <?php
-session_start(); // inicia sesion
+/*session_start(); // inicia sesion
   if (! empty($_SESSION['nombre'])) //verifica si la variable de sesion no esta vacia
-  {
+  {*/
       include 'db/Tabla.php';
       $instanciaTabla = new Tabla();
       if($_REQUEST['metodo']==1)
@@ -53,10 +53,10 @@ session_start(); // inicia sesion
           </body>
           </html>
           <?php
-}
+/*}
 else
 {
   echo "<script language='JavaScript'>alert('Debe iniciar sesion');
   location.href='index.php';</script>";
-}
+}*/
  ?>
