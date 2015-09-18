@@ -95,6 +95,7 @@ class Conexion {
                 mysql_close($this->conn);
                 break;
         }
+        
         return $result;
     }
 

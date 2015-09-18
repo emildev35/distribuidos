@@ -16,9 +16,5 @@ class TramiteProceso extends Conexion
     public function getall(){
         return $this->execute("select * from tramite_proceso");
     }
-    public function FunctionName($value='')
-    {
-      # code...
-    }
 
 }
