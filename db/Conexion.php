@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * Clase encargada de la Gestion de conexiones y la ejecucion
+ * de consultas
+ *
+ * @author franzemil
+ */
 class Conexion {
 
     var $conn;
@@ -17,7 +22,7 @@ class Conexion {
     }
 
     public function getConnection_mssql() {
-        $host = "10.0.1.18";
+        $host = "vasquez-pc";
         $dbname = "tramites";
         $user = "sa";
         $password = "sistemas";
@@ -98,7 +103,4 @@ class Conexion {
         
         return $result;
     }
-
-
-
 }

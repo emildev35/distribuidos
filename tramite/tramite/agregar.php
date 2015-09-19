@@ -16,7 +16,6 @@ $combobit="";
 foreach ($lista_tipo as $row2) {
     $combobit .= "<option name='tipo' value ='" . $row2[0] . "'>" . $row2[2] . "</option>";
 }
-
 ?>
     <html>
     <head>

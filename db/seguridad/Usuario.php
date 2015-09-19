@@ -16,4 +16,3 @@ class Usuario extends Conexion
     	return $datosUsuario;
     }
 }
-?>
