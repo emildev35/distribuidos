@@ -29,5 +29,6 @@ class Tabla extends Conexion
         $datosUsuario = $this->execute($procedimiento);
     	return $datosUsuario;
     }
+
 }
 ?>
