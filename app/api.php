@@ -7,7 +7,8 @@ $p_modulo = $_GET["modulo"];
 include_once __DIR__.'/Middleware.php';
 
 $middleware = new Middleware($p_modulo, $p_clase, $p_metodo);
-$middleware->send(5);
+echo $middleware->send();
 
+include_once __DIR__.'/util/Encrypter.php';
 
-
+echo Encrypter::decrypt($middleware->send());

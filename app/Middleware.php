@@ -36,9 +36,10 @@ class Middleware {
      * @return void
      * @author yourname
      */
-    function send($params) {
+    function send($params=null) {
         $this->produce();
-        echo json_encode($this->result);
+        include_once __DIR__.'/util/Encrypter.php';
+        return Encrypter::encrypt(json_encode($this->result));
     }
 
     /**
@@ -68,9 +69,8 @@ class Middleware {
             $this->result = $clase_instancia->$metodo();
 
         }else{
-            $this->result = array("result" => md5("Accion Desconocida"));
+            $this->result = array("result" => "Accion Desconocida");
         }
-
     }
     /**
      * Desencripta el mensaje 
@@ -80,6 +80,4 @@ class Middleware {
      */
     function consume($params) {
     }
-
-
 }
