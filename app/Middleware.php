@@ -26,7 +26,6 @@ class Middleware {
         $this->module = $module;
         $this->entity = $entity;
         $this->action = $action;
-        $this->params = $params;
     }
     
 
@@ -36,8 +35,8 @@ class Middleware {
      * @return void
      * @author yourname
      */
-    function send($params=null) {
-        $this->produce();
+    function send($params) {
+        $this->produce($params);
         include_once __DIR__.'/util/Encrypter.php';
         return Encrypter::encrypt(json_encode($this->result));
     }
@@ -58,15 +57,13 @@ class Middleware {
      * @return message
      * @author franzemil
      */
-    function produce() {
-
+    function produce($params) {
         $this->file = __DIR__.'/../db/'. $this->module.'/'.$this->entity.'.php';
-        
         if(is_file($this->file)){
             include_once $this->file;
             $clase_instancia = new $this->entity();
             $metodo = $this->action;
-            $this->result = $clase_instancia->$metodo();
+            $this->result = $clase_instancia->$metodo(...$params);
 
         }else{
             $this->result = array("result" => "Accion Desconocida");

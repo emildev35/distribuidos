@@ -25,7 +25,8 @@ class Tipo extends  Conexion {
     /**
      * SELECCIONAR
      */
-    public function getall(){
-        return $this->execute("call tipo_S");
+    public function getall($app, $nombre){
+        //return $this->execute("call tipo_S");
+        return $app. " - ". $nombre;
     }
 }
